@@ -8,8 +8,7 @@
 defined('COT_CODE') or die('Wrong URL.');
 
 require_once cot_langfile('oneline', 'plug');
-require_once cot_incfile('oneline', 'plug', 'settings');
-
+require_once cot_incfile('oneline', 'plug', 'settings.'.$cfg['plugin']['oneline']['code'].'');
 require_once cot_incfile('forms');
 
 $db_oneline = !empty($db_oneline) ? $db_oneline : $db_x.'oneline';
@@ -31,7 +30,8 @@ if ($a == 'delete') {
 }
 elseif ($a == 'update') {
 	$oneline_date = cot_import('oneline_date', 'P', 'ARR');
-	$oneline_price = cot_import('oneline_price', 'P', 'ARR');
+	$oneline_price1 = cot_import('oneline_price1', 'P', 'ARR');
+	$oneline_price2 = cot_import('oneline_price2', 'P', 'ARR');
 	$oneline_text = cot_import('oneline_text', 'P', 'ARR');
 	$oneline_link = cot_import('oneline_link', 'P', 'ARR');
 	$oneline_section = cot_import('oneline_section', 'P', 'ARR');
@@ -39,7 +39,8 @@ elseif ($a == 'update') {
 	foreach($oneline_text as $key => $val) {
 		$db_ins = array();
 		$db_ins['oneline_date'] = (int)cot_import_date($oneline_date[$key], true, false, 'D');
-		$db_ins['oneline_price'] = cot_import($oneline_price[$key], 'D', 'NUM');
+		$db_ins['oneline_price1'] = cot_import($oneline_price1[$key], 'D', 'NUM');
+		$db_ins['oneline_price2'] = cot_import($oneline_price2[$key], 'D', 'NUM');
 		$db_ins['oneline_text'] = cot_import($oneline_text[$key], 'D', 'TXT');
 		$db_ins['oneline_link'] = cot_import($oneline_link[$key], 'D', 'TXT');
 		$db_ins['oneline_section'] = cot_import($oneline_section[$key], 'D', 'TXT');
@@ -54,7 +55,8 @@ elseif ($a == 'update') {
 elseif ($a == 'add') {
 	
 	$db_ins['oneline_date'] = (int)cot_import_date('oneline_date', true, false, 'P');
-	$db_ins['oneline_price'] = cot_import('oneline_price', 'P', 'TXT');
+	$db_ins['oneline_price1'] = cot_import('oneline_price1', 'P', 'TXT');
+	$db_ins['oneline_price2'] = cot_import('oneline_price2', 'P', 'TXT');
 	$db_ins['oneline_text'] = cot_import('oneline_text', 'P', 'TXT');
 	$db_ins['oneline_link'] = cot_import('oneline_link', 'P', 'TXT');
 	$db_ins['oneline_section'] = cot_import('oneline_section', 'P', 'TXT');
@@ -86,8 +88,11 @@ foreach ($sql->fetchAll() as $row) {
 		
 		'ONELINE_DATE' => cot_selectbox_date((int)$row['oneline_date'], 'short', 'oneline_date['.$row['oneline_id'].']', 2030, 2016, true, 'input_date_short'),
 		
-		'ONELINE_PRICE' => cot_inputbox('text', 'oneline_price['.$row['oneline_id'].']', $row['oneline_price'], 'class="form-control"'),
-		'ONELINE_PRICE_RAW' => $row['oneline_price'],
+		'ONELINE_PRICE1' => cot_inputbox('text', 'oneline_price1['.$row['oneline_id'].']', $row['oneline_price1'], 'class="form-control"'),
+		'ONELINE_PRICE1_RAW' => $row['oneline_price1'],
+		
+		'ONELINE_PRICE2' => cot_inputbox('text', 'oneline_price2['.$row['oneline_id'].']', $row['oneline_price2'], 'class="form-control"'),
+		'ONELINE_PRICE2_RAW' => $row['oneline_price2'],
 		
 		'ONELINE_TEXT' => cot_inputbox('text', 'oneline_text['.$row['oneline_id'].']', $row['oneline_text'], 'class="form-control"'),
 		'ONELINE_TEXT_RAW' => $row['oneline_text'],
@@ -113,7 +118,8 @@ if ($ii == 0) {
 $t->assign(array(
 	'ONELINE_ADDURL' => cot_url('admin', 'm=other&p=oneline&a=add'),
 	'ONELINE_ADDDATE' => cot_selectbox_date($sys['now'], 'long', 'oneline_date', 2030, 2016, true, ''),
-	'ONELINE_ADDPRICE' => cot_inputbox('text', 'oneline_price', '', 'class="form-control"'),
+	'ONELINE_ADDPRICE1' => cot_inputbox('text', 'oneline_price1', '', 'class="form-control"'),
+	'ONELINE_ADDPRICE2' => cot_inputbox('text', 'oneline_price2', '', 'class="form-control"'),
 	'ONELINE_ADDTEXT' => cot_inputbox('text', 'oneline_text', '', 'class="form-control"'),
 	'ONELINE_ADDLINK' => cot_inputbox('text', 'oneline_link', '', 'class="form-control"'),
 	'ONELINE_ADDSECTION' => cot_selectbox('', 'oneline_section', $oneline_cats, $oneline_cats_titles, true, 'class="form-control"')

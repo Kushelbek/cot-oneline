@@ -34,7 +34,8 @@ function cot_oneline($tpl = 'oneline.list', $items = 0, $section = '', $order = 
 		$t->assign(array(
 			'PAGE_ROW_ID'      => $row['oneline_id'],
 			'PAGE_ROW_DATE'    => $row['oneline_date'],
-			'PAGE_ROW_PRICE'   => $row['oneline_price'],
+			'PAGE_ROW_PRICE1'   => $row['oneline_price1'],
+			'PAGE_ROW_PRICE2'   => $row['oneline_price2'],
 			'PAGE_ROW_TEXT'    => $row['oneline_text'],
 			'PAGE_ROW_LINK'    => $row['oneline_link'],
 			'PAGE_ROW_SECTION' => $row['oneline_text'],

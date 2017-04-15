@@ -27,8 +27,11 @@
 <!-- IF {PHP.cfg.plugin.oneline.display_date} -->
 											<th>{PHP.L.Date}</th>
 <!-- ENDIF -->
-<!-- IF {PHP.cfg.plugin.oneline.display_price} -->
-											<th>{PHP.L.oneline_price}</th>
+<!-- IF {PHP.cfg.plugin.oneline.display_price1} -->
+											<th>{PHP.L.oneline_price1}</th>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price2} -->
+											<th>{PHP.L.oneline_price2}</th>
 <!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_text} -->
 											<th>{PHP.L.Text}</th>
@@ -47,8 +50,11 @@
 <!-- IF {PHP.cfg.plugin.oneline.display_date} -->
 											<td class="centerall">{ONELINE_DATE}</td>
 <!-- ENDIF -->
-<!-- IF {PHP.cfg.plugin.oneline.display_price} -->
-											<td>{ONELINE_PRICE}</td>
+<!-- IF {PHP.cfg.plugin.oneline.display_price1} -->
+											<td>{ONELINE_PRICE1}</td>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price2} -->
+											<td>{ONELINE_PRICE2}</td>
 <!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_text} -->
 											<td>{ONELINE_TEXT}</td>
@@ -99,14 +105,22 @@
 						<div class="wrapper">
 							<form action="{ONELINE_ADDURL}" method="post" name="pageform">
 								<table class="table table-bordered">
+<!-- IF {PHP.cfg.plugin.oneline.display_date} -->
 									<tr>
 										<td>{PHP.L.Date}</td>
 										<td>{ONELINE_ADDDATE}</td>
 									</tr>
-<!-- IF {PHP.cfg.plugin.oneline.display_price} -->
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price1} -->
 									<tr>
-										<td>{PHP.L.oneline_price}</td>
-										<td>{ONELINE_ADDPRICE}</td>
+										<td>{PHP.L.oneline_price1}</td>
+										<td>{ONELINE_ADDPRICE1}</td>
+									</tr>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price2} -->
+									<tr>
+										<td>{PHP.L.oneline_price2}</td>
+										<td>{ONELINE_ADDPRICE2}</td>
 									</tr>
 <!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_text} -->
