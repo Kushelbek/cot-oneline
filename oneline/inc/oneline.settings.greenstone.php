@@ -1,9 +1,9 @@
 <?php
 /**
- * oneline settings
+ * Oneline Plugin, Green-stone.by
  *
  * @package oneline
- * @version 1.00
+ * @version 2.00
  * @author Dmitri Beliavski
  * @copyright (c) seditio.by 2017
  */

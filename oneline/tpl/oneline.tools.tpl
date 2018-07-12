@@ -30,11 +30,23 @@
 <!-- IF {PHP.cfg.plugin.oneline.display_price1} -->
 											<th>{PHP.L.oneline_price1}</th>
 <!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price1a} -->
+											<th>{PHP.L.oneline_price1a}</th>
+<!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_price2} -->
 											<th>{PHP.L.oneline_price2}</th>
 <!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price2a} -->
+											<th>{PHP.L.oneline_price2a}</th>
+<!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_text} -->
 											<th>{PHP.L.Text}</th>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_extra1} -->
+											<th>{PHP.L.oneline_extra1}</th>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_extra2} -->
+											<th>{PHP.L.oneline_extra2}</th>
 <!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_link} -->
 											<th>{PHP.L.Link}</th>
@@ -53,11 +65,23 @@
 <!-- IF {PHP.cfg.plugin.oneline.display_price1} -->
 											<td>{ONELINE_PRICE1}</td>
 <!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price1a} -->
+											<td>{ONELINE_PRICE1A}</td>
+<!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_price2} -->
 											<td>{ONELINE_PRICE2}</td>
 <!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price2a} -->
+											<td>{ONELINE_PRICE2A}</td>
+<!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_text} -->
 											<td>{ONELINE_TEXT}</td>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_extra1} -->
+											<td>{ONELINE_EXTRA1}</td>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_extra2} -->
+											<td>{ONELINE_EXTRA2}</td>
 <!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_link} -->
 											<td>{ONELINE_LINK}</td>
@@ -91,8 +115,13 @@
 								</table>
 							</form>
 							
-							<p class="text-center mb20">{PHP.L.Total}: {ONELINE_TOTAL}, <span class="lower">{PHP.L.Onpage}:</span> {ONELINE_ONPAGE}</p>
-<!-- IF {ONELINE_PAGINATION} -->
+							<p class="text-center mb20">
+								{PHP.L.Total}: {ONELINE_TOTAL}
+<!-- IF {PHP.cfg.plugin.oneline.pagination} -->
+								, <span class="lower">{PHP.L.Onpage}:</span> {ONELINE_ONPAGE}
+<!-- ENDIF -->
+							</p>
+<!-- IF {PHP.cfg.plugin.oneline.pagination} -->
 							<div class="text-{PHP.R.admin-config-pagialign}">
 								<ul class="pagination pagination-{PHP.R.admin-config-pagisize}">{ONELINE_PREV}{ONELINE_PAGINATION}{ONELINE_NEXT}</ul>
 							</div>
@@ -117,16 +146,40 @@
 										<td>{ONELINE_ADDPRICE1}</td>
 									</tr>
 <!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price1a} -->
+									<tr>
+										<td>{PHP.L.oneline_price1a}</td>
+										<td>{ONELINE_ADDPRICE1A}</td>
+									</tr>
+<!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_price2} -->
 									<tr>
 										<td>{PHP.L.oneline_price2}</td>
 										<td>{ONELINE_ADDPRICE2}</td>
 									</tr>
 <!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_price2a} -->
+									<tr>
+										<td>{PHP.L.oneline_price2a}</td>
+										<td>{ONELINE_ADDPRICE2A}</td>
+									</tr>
+<!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_text} -->
 									<tr>
 										<td>{PHP.L.Text}</td>
 										<td>{ONELINE_ADDTEXT}</td>
+									</tr>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_extra1} -->
+									<tr>
+										<td>{PHP.L.oneline_extra1}</td>
+										<td>{ONELINE_ADDEXTRA1}</td>
+									</tr>
+<!-- ENDIF -->
+<!-- IF {PHP.cfg.plugin.oneline.display_extra2} -->
+									<tr>
+										<td>{PHP.L.oneline_extra2}</td>
+										<td>{ONELINE_ADDEXTRA2}</td>
 									</tr>
 <!-- ENDIF -->
 <!-- IF {PHP.cfg.plugin.oneline.display_link} -->
